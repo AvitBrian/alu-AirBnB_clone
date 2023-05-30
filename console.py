@@ -9,9 +9,10 @@ import shlex
 
 class HBNBCommand(cmd.Cmd):
     """
-     defines the console
+    defines the console
     """
-    prompt = '(hbnb) '
+
+    prompt = "(hbnb) "
 
     def do_quit(self, arg):
         """
@@ -94,8 +95,13 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in models.classes:
             print("** class doesn't exist **")
         else:
-            print([str(value) for key, value in models.storage.all().items()
-                   if key.split('.')[0] == args[0]])
+            print(
+                [
+                    str(value)
+                    for key, value in models.storage.all().items()
+                    if key.split(".")[0] == args[0]
+                ]
+            )
 
     def do_update(self, arg):
         """
@@ -122,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
                 models.storage.save()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     Main function
     """
